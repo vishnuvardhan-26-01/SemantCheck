@@ -1,0 +1,1 @@
+# SemantiCheck backend app package

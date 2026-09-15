@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+}
+
+/* Simple reusable card */
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-navy-600 px-5 py-2.5
+      font-semibold text-white shadow-sm transition hover:bg-navy-700
+      focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300
+      bg-white px-5 py-2.5 font-semibold text-slate-700 shadow-sm transition
+      hover:border-navy-300 hover:text-navy-700
+      focus:outline-none focus:ring-2 focus:ring-navy-300 focus:ring-offset-2
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+}
+
+/* Print styles so the results dashboard doubles as a downloadable report. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+  .card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
